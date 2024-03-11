@@ -1,0 +1,120 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+class Form_action_lap2 extends JFrame implements ActionListener
+
+{
+	JButton Jb1,Jb2;
+	JLabel Jl1,Jl2,Jl3,Jl4,Jl5,txt3,txt4;
+	TextField txt1,txt2;
+	JMenuBar menubar;
+	JMenu JF;
+	JMenuItem JFe,JFa;
+	Form_action_lap2(){
+		setSize(500,300);
+		setVisible(true);
+		setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("Calculate taxes");
+		Container c=getContentPane();
+		menubar = new JMenuBar();
+		JF=new JMenu("File");
+		JF.setFont(new Font("Kanit",Font.ITALIC,13));
+			JFa=new JMenuItem("About us");
+			JFa.setFont(new Font("Kanit",Font.ITALIC,13));
+			JFe=new JMenuItem("Exit");
+			JFe.setFont(new Font("Kanit",Font.ITALIC,13));
+
+		menubar.add(JF);
+			JF.add(JFa);
+			JF.add(JFe);
+
+		setJMenuBar(menubar);
+
+		JFe.addActionListener(this);
+		JFa.addActionListener(this);
+
+		/*c.setLayout(new BorderLayout());
+		Jl5=new JLabel( "                                     Calculate taxes" );
+		Jl5.setFont(new Font("Kanit",Font.ITALIC,20));
+		c.add(Jl5,BorderLayout.NORTH);	*/  
+										  
+		 JPanel P=new JPanel();			  
+		P.setLayout(new GridLayout(4,2)); 
+		Jl1=new JLabel(" Salary/month "); txt1=new TextField(20);
+		Jl1.setFont(new Font("Kanit",Font.ITALIC,15));
+ 		Jl2=new JLabel(" Bonus ");	      txt2=new TextField(20);
+		Jl2.setFont(new Font("Kanit",Font.ITALIC,15));
+		Jl3=new JLabel(" Tax 10% ");      txt3=new JLabel("");
+		Jl3.setFont(new Font("Kanit",Font.ITALIC,15));
+		Jl4=new JLabel(" Net Salary ");   txt4=new JLabel("");
+		Jl4.setFont(new Font("Kanit",Font.ITALIC,15));
+		P.add(Jl1); P.add(txt1); 
+		P.add(Jl2); P.add(txt2); 
+		P.add(Jl3); P.add(txt3);
+		P.add(Jl4); P.add(txt4);  
+		P.setBorder(BorderFactory.createTitledBorder("Calculate taxes"));
+		JPanel B=new JPanel();
+		B.setLayout(new GridLayout(1,2));
+		Jb1=new JButton(" Process ");
+		Jb1.setBackground(Color.pink);
+		Jb1.setFont(new Font("Kanit",Font.ITALIC,15));
+		Jb2=new JButton(" Reset ");
+		Jb2.setBackground(Color.pink);
+		Jb2.setFont(new Font("Kanit",Font.ITALIC,15));
+
+		Jb1.addActionListener(this);
+		Jb2.addActionListener(this);
+
+		B.add(Jb1); B.add(Jb2);
+
+		c.add(P,BorderLayout.CENTER);
+		c.add(B,BorderLayout.SOUTH);
+			 
+	}
+	
+	public void actionPerformed(ActionEvent e ){
+			double a=0,b=0 ;
+			
+			try{a=Double.parseDouble(txt1.getText());
+				b=Double.parseDouble(txt2.getText());
+			}catch(NumberFormatException s){
+			
+
+			}
+
+			
+	
+			
+		if(e.getSource()==JFa){
+			JOptionPane.showMessageDialog(null,"Mr.Thamarat Laosen");
+
+		}else if(e.getSource()==Jb1){
+		double d=((a*12)+b)*0.10 , total=((a*12)+b)-d;
+			txt3.setText(""+d);
+			txt4.setText(""+total);
+
+		}else if (e.getSource()==Jb2){
+			txt1.setText("");
+			txt2.setText("");
+			txt3.setText("");
+			txt4.setText("");
+
+		}else if(e.getSource()==JFe){
+			int result = JOptionPane.showConfirmDialog (null,"Do you want to  Exit ?","Warning",JOptionPane.YES_NO_OPTION);
+		if (result == JOptionPane.YES_NO_OPTION)
+					setVisible(false);
+
+		}
+	}
+	
+	public static void main(String[] args) 
+	{
+		/*Form_action_lap2 f=new Form_action_lap2();
+		f.setSize(500,300);
+		f.setVisible(true);
+		f.setResizable(false);
+		f.setDefaultCloseOperation(f.EXIT_ON_CLOSE);*/
+	}
+}

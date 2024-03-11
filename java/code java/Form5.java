@@ -1,0 +1,52 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+class  Form5 extends JFrame implements ItemListener{
+	JCheckBox JB,JI;
+	JLabel Jl1;
+	
+	int valBold = Font.PLAIN;
+	int valItalic = Font.PLAIN;
+	Form5(){
+		setTitle("Technic Krabi");
+		Container c=getContentPane();
+		c.setLayout(new FlowLayout());
+		JB = new JCheckBox("Bold");
+		JI = new JCheckBox("Italic");
+ 
+		Jl1= new JLabel(" Number 1 ");
+		
+		c.add(Jl1);
+		c.add(JB);
+		c.add(JI);
+		
+		JB.addItemListener(this);
+		JI.addItemListener(this);
+	}
+	public void itemStateChanged(ItemEvent s){
+		if(s.getSource()==JB){
+			if(s.getStateChange()==ItemEvent.SELECTED){
+			valBold = Font.BOLD;
+		}else{
+			valBold = Font.PLAIN;
+			}
+		}
+		if(s.getSource()==JI){
+			if(s.getStateChange()==ItemEvent.SELECTED){
+			valItalic = Font.ITALIC;
+		}else{
+			valItalic = Font.PLAIN;
+			}
+		}
+	Jl1.setFont(new Font("DB Sathorn Medium",valBold+valItalic,18));
+	}
+
+	public static void main(String[] args) 
+	{
+	Form5 f=new Form5();
+	f.setSize(500,300);
+	f.setVisible(true);
+	f.setResizable(false);
+	f.setDefaultCloseOperation(f.EXIT_ON_CLOSE);
+	}
+}

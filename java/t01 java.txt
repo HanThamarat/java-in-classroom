@@ -1,0 +1,100 @@
+java 
+
+ln = ขึ้นบรรทัดใหม่
+
+method = funsion
+___________________________________________________________________________________________________
+1.
+*ฟังก์ชันย่อย ไม่มีค่าเข้าหรือค่าออก
+public static void Show(){
+        
+    } 
+___________________________________________________________________________________________________
+2.
+*ฟังก์ชันส่งค่าเข้า
+public class Main
+{
+    public static void main(String[] args) {
+	int a=10,b=20,c=30
+       FindShow1(a,b,c);
+    }
+    
+    public static void Show1(int a,int b,int c){
+
+        System.out.println("value  = " +a+"  value b = "+b+"  value c = "+c);
+    }
+___________________________________________________________________________________________________
+3.
+*ฟังก์ชันส่งค่าออก 1
+
+public class Main
+{
+    public static void main(String[] args) {
+        int a=FindData(10,20);
+        System.out.println("Sum = "+a);
+    }
+    
+    public static int FindData(int a,int b){
+        int x=a+b;
+        return x;
+    }
+}
+
+**ฟังก์ชันส่งค่าออก 2
+
+public class Main
+{
+    public static void main(String[] args) {
+        double a=FindAverage(10,21);
+        System.out.println("Average = "+a);
+    }
+    
+    public static float FindAverage(float a,float b){
+        float x=(a+b)/2;
+        return x;
+    }
+}
+
+***ฟังก์ชันส่งค่าออก 3
+
+public class Main
+{
+    public static void main(String[] args) {
+        double a=FindAverage(10,21,30);
+        System.out.println("Average = "+a);
+    }
+    
+    public static float FindAverage(int a,int b ,int c){//หรือ(float a,float b)
+        float x=(float)(a+b+c)/3; 		//x=(a+b)/2; casting บังคับให้เปลี่ยนเป็นชนิดตัวแปรที่ต้องการเช่น int เปลี่ยนเป็น float
+        return x; 		//return (float)(a+b+c)/3;
+    }
+}
+
+****ฟังก์ชันส่งค่าออก 4
+
+public class Main
+{
+    public static void main(String[] args) {
+        int g=FindGrade(60);
+        System.out.println("Grade = "+g);
+    }
+    
+    public static int FindGrade(int a){
+        if(a<50) return 0;
+        else if(a<60) return 1;
+        else if(a<70) return 2;
+        else if(a<80) return 3;
+        else return 4;
+    }
+}
+
+___________________________________________________________________________________________________
+
+import java.text.*; 
+
+NumberFormat f=NumberFormat.getNumberInstance();
+f.setMaximumFractionDigits(2);
+
+new คำสั่งในการสร้างobjectจากแบบแปลน
+
+contructor การใช้ mathod ชื่อเดียวกับ class ใช้เซ็ตอัพตัวแปรและบายพาสค่าออกมาเก็บในตัวแปรภายนอก

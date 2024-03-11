@@ -1,0 +1,78 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+class From_login extends JFrame implements ActionListener
+{	
+	ImageIcon img1, img2;
+	JFrame f;
+	JButton Je,Jo;
+	JLabel Ma,Jl1,Jl2,Jl3,Jl4,Jl5;
+	JPasswordField pwd1;
+	JTextField Jt1;
+	From_login(){
+		setTitle("Caculator");
+		Container c=getContentPane();
+		c.setLayout(new BorderLayout());
+		
+		
+		JPanel p=new JPanel();			  
+		p.setLayout(null); 
+
+		Jl4=new JLabel("");
+		
+		Je=new JButton("Login");
+			Je.setBounds(160,180,150,50);
+			Je.setFont(new Font("Kanit",Font.ITALIC,14));
+			Je.setBackground(Color.pink);
+		Jo=new JButton("Reset");
+			Jo.setBounds(320,180,150,50);
+			Jo.setBackground(Color.pink);
+			Jo.setFont(new Font("Kanit",Font.ITALIC,14));
+		Ma=new JLabel("");
+		Jl1=new JLabel("User Name");
+			Jl1.setBounds(188,10,150,50);
+			Jl1.setFont(new Font("Kanit",Font.ITALIC,15));
+		Jl2=new JLabel("Password");
+			Jl2.setBounds(188,89,150,50);
+			Jl2.setFont(new Font("Kanit",Font.ITALIC,15));
+		pwd1=new JPasswordField(20);
+			pwd1.setBounds(161,130,310,35);
+		Jt1=new JTextField(100);
+			Jt1.setBounds(161,50,310,35);
+
+		img1=new ImageIcon("p2.png");
+		Image image = img1.getImage();
+		Image newimg = image.getScaledInstance(60, 60, Image.SCALE_SMOOTH);
+		img1= new ImageIcon(newimg);
+		Jl4.setIcon(img1);
+		Jl4.setBounds(100,50,30,35);
+
+		p.add(Jl4);
+		p.add(Jl1); p.add(Jt1);
+		p.add(Jl2); p.add(pwd1);
+		p.add(Je); p.add(Jo);
+		p.setBorder(BorderFactory.createTitledBorder("Calculate taxes"));
+		p.setFont(new Font("Kanit",Font.ITALIC,20));
+		
+		
+		
+
+		c.add(p,BorderLayout.CENTER);
+	
+		
+	}
+
+	public void actionPerformed(ActionEvent e ){
+		
+	}
+	
+	
+	public static void main(String[] args) 
+	{
+	From_login f=new From_login();
+	f.setSize(500,280);
+	f.setVisible(true);
+	f.setResizable(false);
+	f.setDefaultCloseOperation(f.EXIT_ON_CLOSE);
+	}
+}

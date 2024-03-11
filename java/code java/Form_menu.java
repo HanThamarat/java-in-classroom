@@ -1,0 +1,68 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+class Form_menu extends JFrame implements ActionListener
+{	
+	JMenuBar menubar;
+	JMenu JF,JE,JV;
+	JMenu JH , JHt ;
+	JMenuItem JFo,JFe,JFa;
+	JMenuItem JHtj ,JHr , JHth;
+
+	Form_menu(){
+		setTitle("Technic Krabi");
+		Container c=getContentPane();
+		menubar = new JMenuBar();
+		JF=new JMenu("File");
+			JFo=new JMenuItem("Open");
+			JFa=new JMenuItem("About us");
+			JFe=new JMenuItem("Exit");
+
+		JE=new JMenu("Edit");
+		
+		JV=new JMenu("View");
+		
+		JH=new JMenu("Help");
+			JHt=new JMenu("Topic");
+				JHtj=new JMenuItem("Java");
+				JHth=new JMenuItem("Html");
+			JHr=new JMenuItem("Register");
+
+			
+		menubar.add(JF);
+			JF.add(JFo);
+			JF.add(JFa);
+			JF.add(JFe);
+
+		menubar.add(JE);
+
+		menubar.add(JV);
+
+		menubar.add(JH);
+			JH.add(JHt);
+				JHt.add(JHtj);
+				JHt.add(JHth);
+			JH.add(JHr);
+		setJMenuBar(menubar);
+
+		JFe.addActionListener(this);
+		JFa.addActionListener(this);
+	}
+		public void actionPerformed(ActionEvent e ){
+		if(e.getSource()==JFa){
+			JOptionPane.showMessageDialog(null,"Mr.Thanatrorn Roengsamut");
+		}else if(e.getSource()==JFe){
+			System.exit(0);
+		}
+	}
+	
+
+	public static void main(String[] args) 
+	{
+	Form_menu f=new Form_menu();
+	f.setSize(500,300);
+	f.setVisible(true);
+	f.setResizable(true);
+	f.setDefaultCloseOperation(f.EXIT_ON_CLOSE);
+	}
+}

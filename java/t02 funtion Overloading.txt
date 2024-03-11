@@ -1,0 +1,55 @@
+funtion overloading คือ funtion ฟังก์ชันสามารถมีชื่อที่เหมือนกันได้ โดยการมีจำนวนของพารามิเตอร์ ลำดับและประเภทข้อมูลต่างกัน
+
+___________________________________________________________________________________________________
+
+GET = รับค่า
+___________________________________________________________________________________________________
+
+SET = ส่งค่า
+___________________________________________________________________________________________________
+1.
+*ชื่อfuntionเหมือนกัน แต่พารามิเตอร์ไม่เท่ากัน
+public class Main                                                                             
+{
+    public static void main(String[] args) {
+        int a=37,b=30;
+        Findsum(a,b); 
+        Findsum(a,b,50);
+        Findsum(39,40,50,25);
+    }
+    
+    public static void Findsum(int x,int y){
+        int a = x+y;
+        System.out.println("total = "+a);
+    }
+    
+    public static void Findsum(int x,int y,int z){
+        int a = x+y+z;
+        System.out.println("total = "+a);
+    }
+    
+    public static void Findsum(int w,int x,int y,int z){
+        int a = w+x+y+z;
+        System.out.println("total = "+a);
+    }
+
+}
+___________________________________________________________________________________________________
+2.
+**ชื่อfuntionเหมือนกัน พารามิเตอร์เท่ากัน แต่ชนิดตัวแปรต่างกัน
+public class Main
+{
+    public static void main(String[] args) {
+        FindData(10);
+        FindData(10.5);
+    }
+    
+    public static void FindData(int a){
+        System.out.println("Hello 1 = "+a);
+    }
+
+    public static void FindData(double a){
+        System.out.println("Hello 2 = "+a);
+    }
+}
+___________________________________________________________________________________________________

@@ -1,0 +1,83 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+class  Form_img1 extends JFrame implements ActionListener{
+	int n=1;
+	JButton Jb1,Jb2,Jb3;
+	JLabel Jl1,Jl2,Jl3;
+	ImageIcon img1,img2,img3,img4;
+	Form_img1(){
+		setTitle("");
+		Container c=getContentPane();
+		c.setLayout(new FlowLayout());
+		Jb1=new JButton(">>");
+		Jb2=new JButton("<<");
+	
+		Jl1=new JLabel("");
+		Jl2=new JLabel("");
+		//Jl3=new JLabel("");
+		img1=new ImageIcon("img/g1.png");
+		img2=new ImageIcon("img/g2.png");
+		img3=new ImageIcon("img/g3.png");
+		img4=new ImageIcon("img/g4.png");
+		//Jl1.setIcon(img1);
+		c.add(Jb2);
+		c.add(Jb1);
+		
+		//c.add(Jb3);
+
+		c.add(Jl1);
+		
+		
+
+		Jb1.addActionListener(this);
+		Jb2.addActionListener(this);
+		//Jb3.addActionListener(this);
+	}
+	public void actionPerformed(ActionEvent e ){
+		if(e.getSource()==Jb1){
+			if(n==1){
+				Jl1.setIcon(img1);
+				n++;
+			}
+			else if(n==2){
+				Jl1.setIcon(img2);
+				n++;
+			}
+			else if(n==3){
+				Jl1.setIcon(img3);
+				n++;
+			}
+			else if(n==4){
+				Jl1.setIcon(img4);
+				n=1;
+			}
+		}
+		else if(e.getSource()==Jb2){
+			if(n==1){
+				Jl1.setIcon(img1);
+				n=4;
+			}
+			else if(n==2){
+				Jl1.setIcon(img2);
+				n--;
+			}
+			else if(n==3){
+				Jl1.setIcon(img3);
+				n--;
+			}
+			else if(n==4){
+				Jl1.setIcon(img4);
+				n--;
+			}
+		}
+	}
+	public static void main(String[] args) 
+	{
+	Form_img1 f=new Form_img1();
+	f.setSize(500,300);
+	f.setVisible(true);
+	f.setResizable(true);
+	f.setDefaultCloseOperation(f.EXIT_ON_CLOSE);
+	}
+}
